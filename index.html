@@ -9,6 +9,10 @@
     
 
     <script>
+        function print(Text){
+            console.log(Text)
+        }
+        
         function printHelloW(){
             console.log("hello world")
         }
@@ -17,8 +21,101 @@
             console.log("Shahaf Segal");
         }
 
+        function getMyName(){
+            return "Shahaf Segal";
+        }
+
+        function getSum3_7(){ return 3+7;}
+        //5
+        function getSum6_4(){
+            var number1=6 
+            var number2=4;
+            return number1+number2;
+        }
+        //6
+        function sumOf(n1,n2){
+            return n1+n2;
+        }
+        //7
+        function mulOf(n1,n2){
+            return n1*n2;
+        }
+        //8
+        function getDiff(n1,n2)
+        {
+            return Math.abs( n1 - n2);
+        }
+        //9
+        function getRelative(n1,n2)
+        {
+            var relative=n1/n2;
+            if( n2>n1){    
+                relative= 1/relative; 
+            }
+            return relative;
+                
+        }
+        //10
+        function getUserSum(){
+            return sumOf( +prompt("get number 1"), +prompt("get number 2") )
+        }
+
+
+        //minmaxFun
+        function printMinMaxUserNums(){
+            var min;
+            var max;
+            for( var i=0;true;i++)
+            {
+                var num= +prompt("give a positive number");
+                if(num<1)
+                {
+                    if(i==0)
+                    { print("exited without min/max");}
+                    else{
+                        print("minimum: "+min);
+                        print("maximum: "+max);
+                    }
+                    break;
+                }
+                else
+                {
+                    if(i==0)
+                    {
+                        max=num;
+                        min=num;
+                    }
+                    else if(num>max){
+                        max=num;
+                    }
+                    if(num<min){
+                        min=num;
+                    }
+                }
+
+
+            }
+        }
+
+        // function listIsNumDivisible(divArr, checkNum){
+        //     for (const divider in divArr) {
+        //         if(isNumDivisible(divider,checkNum))
+        //         {
+        //             return true
+        //         }
+        //     }
+        //     return false
+        // }
+
+        // function isNumDivisible(divideNum, checkedNum){
+        //     return checkedNum%divideNum==0;
+        // }
+
         printHelloW();
         printMyName();
+        print(getMyName());
+        print(getSum3_7());
+        print(getSum6_4());
 
         
     </script>
