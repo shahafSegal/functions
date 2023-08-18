@@ -12,20 +12,21 @@
         function print(Text){
             console.log(Text)
         }
-        
+        //1
         function printHelloW(){
             console.log("hello world")
         }
-
+        //2
         function printMyName(){
             console.log("Shahaf Segal");
         }
-
+        //3
         function getMyName(){
             return "Shahaf Segal";
         }
-
+        //4
         function getSum3_7(){ return 3+7;}
+
         //5
         function getSum6_4(){
             var number1=6 
@@ -36,15 +37,18 @@
         function sumOf(n1,n2){
             return n1+n2;
         }
+
         //7
         function mulOf(n1,n2){
             return n1*n2;
         }
+
         //8
         function getDiff(n1,n2)
         {
             return Math.abs( n1 - n2);
         }
+
         //9
         function getRelative(n1,n2)
         {
@@ -55,9 +59,169 @@
             return relative;
                 
         }
+
         //10
         function getUserSum(){
             return sumOf( +prompt("get number 1"), +prompt("get number 2") )
+        }
+
+        //11
+
+        function printUserName_Age (){
+            print("name:  "+ prompt("give me name:") + ", age: "+ +prompt("give me age"));
+        }
+
+        //12
+        function getMaxNums(num1, num2){
+            if(num1>num2)
+            {
+                return num1;
+            }
+            return num2 ;
+        }
+        //13 same thing as 6
+
+        //14
+        function getSumTilNum(num){
+            var sum=num;
+            for( var i=1; i<num;i++)
+            {
+                sum+=i;
+            }
+            return sum;
+        }
+
+        //15
+        function switchNumsOne_Two()
+        {
+            var tempNum=numberOne;
+            numberOne=numberTwo;
+            numberTwo=tempNum;
+
+        }
+
+        //16
+        function printRightTriangle(triLength){
+            if (triLength>0)
+            {
+                print("*")
+
+                for(var i =2;i<triLength;i++)
+                {
+                    print("*"+" ".repeat(i-2)+"*")
+                }
+
+                if(triLength!=1)
+                {
+                    print("*".repeat(triLength))
+                }
+            }
+            else
+            {
+                print("invalid triangle length")
+            }
+        }
+        //17
+        function printHello(){
+            print("hello")
+        }
+
+        //18
+        function getMinNums(num1, num2)
+        {
+            if(num1<num2)
+            {
+                return num1;
+            }
+            return num2 ;
+        }
+        //19
+        function getMin3Nums(n1,n2,n3){
+            return getMinNums( getMinNums(n1,n2),n3);
+        }
+        //20 
+        function getAvgOf3(n1,n2,n3){
+            return sumOf( sumOf(n1,n2),n3) /3;
+        }
+        //21
+        function sumOf4(n1,n2,n3,n4){
+            return sumOf(sumOf(n1,n2), sumOf(n3,n4) )
+
+        }
+        //22
+        function getExpoOf(base, exponent)
+        {
+            return base**exponent;
+        }
+        //23
+        function getSumOfDigits(num){
+            var changingNum= math.abs(num);
+            var sum=0;
+            while (changingNum>0){
+                sum+= changingNum%10;
+                changingNum= Math.floor(changingNum/10)
+
+            }
+            return sum
+        }
+        //24
+        function printfibonacciUserLen(){
+            var fibonStr="1"
+            var lastNum = 1;
+            var nextNum = 1;
+            var userLength= +prompt("give me a positive number")
+            if (userLength <1)
+            {
+                print("invalid length")
+            }
+            else{
+                for(var i=1;i<userLength;i++)
+                {
+                    fibonStr= fibonStr+","+nextNum;
+                    nextNum+=lastNum;
+                    lastNum= nextNum-lastNum;
+                }
+                print(fibonStr)
+            }
+            
+        }
+        //25
+        function printHundredNums(){
+            for(var j=1; j<101;j++)
+            {
+                print(j)
+            }
+        }
+        //26
+        function printWithUserTxt( Text , times=10)
+        {
+            for( var j=0; j<times;j++)
+            {
+                print(Text + prompt("input text: "))
+            }
+        }
+        //27
+        function printHwBiggerThan10Times(){
+            var userNum= +prompt("give me a number: ")
+            if (userNum>10)
+            {
+                for( var j=0; j<userNum;j++)
+                {
+                    printHelloW()
+                }
+            }
+            else
+            {
+                print(userNum)
+            }
+        }
+        //28
+        function printUserTxtTimes(usrText= prompt("input text: "), userTimes = +prompt("how many times?"))
+        {
+            for( var j=0; j<userTimes;j++)
+                {
+                    print(usrText);
+                }
         }
 
 
@@ -85,11 +249,9 @@
                         max=num;
                         min=num;
                     }
-                    else if(num>max){
-                        max=num;
-                    }
-                    if(num<min){
-                        min=num;
+                    else {
+                        max =getMaxNums(max,num)
+                        min =getMinNums(min,num)
                     }
                 }
 
@@ -97,25 +259,92 @@
             }
         }
 
-        // function listIsNumDivisible(divArr, checkNum){
-        //     for (const divider in divArr) {
-        //         if(isNumDivisible(divider,checkNum))
-        //         {
-        //             return true
-        //         }
-        //     }
-        //     return false
-        // }
+        function isNumDivisible(divideNum, checkedNum){
+            return checkedNum%divideNum==0;
+        }
 
-        // function isNumDivisible(divideNum, checkedNum){
-        //     return checkedNum%divideNum==0;
-        // }
+        function listIsNumDivisiblePrime(divArr, checkNum){
+            var arrLen= divArr.length
+            for (var l =0; l<arrLen;l++) {
+                if(isNumDivisible(divArr[l],checkNum))
+                {
+                    return true
+                }
+
+                if(checkNum< divArr[l]**2)
+                {
+                    break;
+                }
+            }
+            return false
+        }
+
+        
+
+
+        function isNumPrime(number= +prompt("give a number:")){
+            if(!number || number<2)
+            { return false}
+            if(number==2){
+                return true
+            }
+            var sqrOfNum= Math.sqrt(number);
+            var primeArr= [2];
+
+            for( var c=3;c<=sqrOfNum;c+=2){
+                if(!listIsNumDivisiblePrime(primeArr,c))
+                {
+                    primeArr.push(c);
+                }
+
+            }
+            print(primeArr)
+            return !listIsNumDivisiblePrime(primeArr,number);
+
+
+        }
 
         printHelloW();
         printMyName();
         print(getMyName());
         print(getSum3_7());
         print(getSum6_4());
+        //11
+        // for(var i=0;i<2;i++){
+        //     printUserName_Age();
+        // }
+        //12
+        print(getMaxNums(19,-10))
+        //13
+        print("sum of 95 78 : "+sumOf(95,78))
+        //14 
+        print(getSumTilNum(4))
+        //15
+        var numberOne =15
+        var numberTwo =91
+
+        print("numberOne: "+numberOne+" numberTwo: "+numberTwo)
+        switchNumsOne_Two()
+        print("numberOne: "+numberOne+" numberTwo: "+numberTwo)
+
+        //16
+        printRightTriangle(5)
+        printRightTriangle(12)
+        printRightTriangle(1)
+
+        //17
+        for(var k=0;k<5;k++){
+            printHello()
+        }
+
+        //18
+        print("min 10,-19: "+getMinNums(10,-19));
+        //19
+        print("min 10,20, -70: "+getMin3Nums(10,20,-70));
+        //20
+        print("average 10,-20, 60: "+getAvgOf3(10,-20,60));
+        //21
+        print( sumOf4( 9,10,21,-1))
 
         
     </script>
